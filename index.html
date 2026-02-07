@@ -1,0 +1,296 @@
+import React, { useState } from 'react';
+import { ChevronRight, ChevronLeft, Printer, TrendingUp, MapPin, ShieldCheck, Globe, CheckCircle } from 'lucide-react';
+
+const Slide = ({ children, isActive }) => {
+  if (!isActive) return null;
+  return (
+    <div className="flex flex-col items-center justify-center h-full p-8 text-center animate-fade-in-up">
+      {children}
+    </div>
+  );
+};
+
+export default function App() {
+  const [currentSlide, setCurrentSlide] = useState(0);
+
+  const slides = [
+    {
+      id: 0,
+      content: (
+        <div className="space-y-6">
+          <div className="bg-blue-900 text-white px-6 py-2 rounded-full text-sm font-bold uppercase tracking-widest mb-4">
+            Propuesta Estratégica
+          </div>
+          <h1 className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight">
+            ZULIA<span className="text-blue-600">PRINT</span>
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto mt-4">
+            De una Imprenta Local a una <span className="font-bold text-slate-900">Potencia Industrial Regional</span>.
+          </p>
+          <div className="mt-12 p-4 bg-slate-100 rounded-lg inline-block">
+            <p className="text-sm text-slate-500 font-semibold">PRESIONE SIGUIENTE PARA COMENZAR</p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 1,
+      content: (
+        <div className="space-y-8 max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-800 mb-8">
+            La Realidad de "Imprelibros" Hoy
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6 text-left">
+            <div className="bg-red-50 p-6 rounded-xl border border-red-100 shadow-sm">
+              <div className="text-red-500 mb-4"><ShieldCheck size={40} /></div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Nos limita al Pasado</h3>
+              <p className="text-slate-600">Suena a que solo hacemos libros escolares y enciclopedias, un mercado que cada vez es más pequeño.</p>
+            </div>
+            <div className="bg-red-50 p-6 rounded-xl border border-red-100 shadow-sm">
+              <div className="text-red-500 mb-4"><Printer size={40} /></div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Confunde al Cliente</h3>
+              <p className="text-slate-600">El cliente nuevo piensa: <em>"Yo necesito cajas y etiquetas, no libros. Mejor busco en otro lado".</em></p>
+            </div>
+            <div className="bg-red-50 p-6 rounded-xl border border-red-100 shadow-sm">
+              <div className="text-red-500 mb-4"><TrendingUp size={40} /></div>
+              <h3 className="text-xl font-bold text-slate-800 mb-2">Frena el Dinero</h3>
+              <p className="text-slate-600">Estamos perdiendo contratos de empaques y publicidad solo por el nombre.</p>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 2,
+      content: (
+        <div className="space-y-8 max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-800">
+            La Oportunidad de Oro (2025)
+          </h2>
+          <p className="text-xl text-slate-600">La economía se mueve y necesitamos un nombre que venda.</p>
+          
+          <div className="bg-white p-8 rounded-2xl shadow-lg border border-slate-200 text-left space-y-6">
+            <div className="flex items-start">
+              <div className="bg-green-100 p-3 rounded-full mr-4 text-green-600 font-bold">1</div>
+              <div>
+                <h4 className="text-lg font-bold text-slate-900">Las empresas están invirtiendo en INVENTARIO</h4>
+                <p className="text-slate-600">Inventario significa cajas, etiquetas, bolsas y facturas. No libros.</p>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <div className="bg-green-100 p-3 rounded-full mr-4 text-green-600 font-bold">2</div>
+              <div>
+                <h4 className="text-lg font-bold text-slate-900">La Logística (Tealca/Zoom) mejoró</h4>
+                <p className="text-slate-600">Ya podemos venderle a Falcón, Trujillo y Mérida sin abrir sucursales.</p>
+              </div>
+            </div>
+            <div className="flex items-start">
+              <div className="bg-green-100 p-3 rounded-full mr-4 text-green-600 font-bold">3</div>
+              <div>
+                <h4 className="text-lg font-bold text-slate-900">El cliente quiere "Proveedores Industriales"</h4>
+                <p className="text-slate-600">Buscan fábricas serias, no tipografías pequeñas.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 3,
+      content: (
+        <div className="space-y-8 w-full max-w-5xl">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-800 mb-8">
+            La Solución: ZULIAPRINT
+          </h2>
+          <div className="grid md:grid-cols-2 gap-8">
+            {/* Lado ZULIA */}
+            <div className="bg-gradient-to-br from-blue-600 to-blue-800 p-8 rounded-2xl text-white shadow-xl transform transition hover:scale-105 duration-300">
+              <div className="mb-4"><MapPin size={48} className="text-yellow-400" /></div>
+              <h3 className="text-4xl font-black mb-4 uppercase tracking-wider">ZULIA</h3>
+              <ul className="text-left space-y-3 text-blue-100 text-lg">
+                <li className="flex items-center"><CheckCircle size={20} className="mr-2" /> Orgullo Regional.</li>
+                <li className="flex items-center"><CheckCircle size={20} className="mr-2" /> Confianza: "Somos de aquí".</li>
+                <li className="flex items-center"><CheckCircle size={20} className="mr-2" /> Solidez contra las empresas "de maletín" de Caracas.</li>
+              </ul>
+            </div>
+
+            {/* Lado PRINT */}
+            <div className="bg-slate-900 p-8 rounded-2xl text-white shadow-xl transform transition hover:scale-105 duration-300 border-2 border-slate-700">
+              <div className="mb-4"><Globe size={48} className="text-cyan-400" /></div>
+              <h3 className="text-4xl font-black mb-4 uppercase tracking-wider font-mono">PRINT</h3>
+              <ul className="text-left space-y-3 text-slate-300 text-lg">
+                <li className="flex items-center"><CheckCircle size={20} className="mr-2" /> Estándar Internacional.</li>
+                <li className="flex items-center"><CheckCircle size={20} className="mr-2" /> Tecnología (Como el "Teipe" o el "Guachimán").</li>
+                <li className="flex items-center"><CheckCircle size={20} className="mr-2" /> Significa que <strong>hacemos de todo</strong> (no solo libros).</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 4,
+      content: (
+        <div className="space-y-6 max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-800">
+            El Estándar Alemán
+          </h2>
+          <p className="text-xl text-slate-600">Aprendamos de los mejores del mundo.</p>
+          
+          <div className="bg-white p-8 rounded-xl shadow-lg border-l-8 border-yellow-500 my-8">
+            <h3 className="text-2xl font-bold text-slate-800 mb-4">El Ejemplo Heidelberg</h3>
+            <p className="text-lg text-slate-700 mb-6 italic">
+              "Heidelberg no vende solo máquinas, vende <strong>Ingeniería Alemana</strong>."
+            </p>
+            <div className="h-px bg-slate-200 w-full my-6"></div>
+            <h3 className="text-2xl font-bold text-blue-800 mb-4">Nuestra Estrategia</h3>
+            <p className="text-lg text-slate-700">
+              Nosotros venderemos <strong>"Ingeniería Zuliana"</strong>.
+              <br/><br/>
+              Zuliaprint será sinónimo de calidad robusta, trabajo duro y tecnología moderna.
+              Igual que lo alemán, pero nuestro.
+            </p>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 5,
+      content: (
+        <div className="space-y-8 max-w-4xl">
+          <h2 className="text-3xl md:text-5xl font-bold text-slate-800">
+            Un Plan Seguro y Sin Riesgos
+          </h2>
+          <div className="space-y-4 text-left">
+            <div className="flex items-center bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+              <div className="bg-blue-100 p-3 rounded-full mr-4 font-bold text-blue-800">Mes 1-6</div>
+              <div>
+                <p className="font-bold text-lg">Transición Suave</p>
+                <p className="text-slate-600">Usaremos el lema: <em>"Zuliaprint: Una empresa de Imprelibros"</em>. No perdemos a los clientes viejos.</p>
+              </div>
+            </div>
+            <div className="flex items-center bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+              <div className="bg-blue-100 p-3 rounded-full mr-4 font-bold text-blue-800">Alianzas</div>
+              <div>
+                <p className="font-bold text-lg">Logística Regional</p>
+                <p className="text-slate-600">Convenio con Tealca: "Impresión en Maracaibo, entrega en Valera en 24h".</p>
+              </div>
+            </div>
+            <div className="flex items-center bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+              <div className="bg-blue-100 p-3 rounded-full mr-4 font-bold text-blue-800">Imagen</div>
+              <div>
+                <p className="font-bold text-lg">Dominio Digital</p>
+                <p className="text-slate-600">Seremos los #1 en Google. Nadie más tiene este nombre.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )
+    },
+    {
+      id: 6,
+      content: (
+        <div className="space-y-8">
+          <h2 className="text-4xl md:text-6xl font-extrabold text-slate-900">
+            ¿Conclusión?
+          </h2>
+          <p className="text-2xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
+            Cambiar a <strong>Zuliaprint</strong> no es un gasto.
+            <br/><br/>
+            Es la inversión necesaria para dejar de ser una imprenta local y convertirse en una <span className="text-blue-700 font-bold bg-blue-50 px-2 rounded">Industria Regional</span>.
+          </p>
+          <div className="mt-12">
+            <button 
+              onClick={() => setCurrentSlide(0)}
+              className="bg-slate-900 text-white px-8 py-3 rounded-full font-bold hover:bg-slate-800 transition shadow-lg"
+            >
+              Reiniciar Presentación
+            </button>
+          </div>
+        </div>
+      )
+    }
+  ];
+
+  const nextSlide = () => {
+    if (currentSlide < slides.length - 1) setCurrentSlide(curr => curr + 1);
+  };
+
+  const prevSlide = () => {
+    if (currentSlide > 0) setCurrentSlide(curr => curr - 1);
+  };
+
+  return (
+    <div className="h-screen w-full bg-slate-50 flex flex-col font-sans text-slate-900">
+      {/* Progress Bar */}
+      <div className="w-full h-2 bg-slate-200">
+        <div 
+          className="h-full bg-blue-600 transition-all duration-500 ease-out"
+          style={{ width: `${((currentSlide + 1) / slides.length) * 100}%` }}
+        ></div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="flex-1 relative overflow-hidden flex items-center justify-center p-4">
+        {slides.map((slide) => (
+          <div 
+            key={slide.id}
+            className={`absolute inset-0 transition-all duration-500 transform ${
+              slide.id === currentSlide 
+                ? 'opacity-100 translate-x-0' 
+                : slide.id < currentSlide 
+                  ? 'opacity-0 -translate-x-full' 
+                  : 'opacity-0 translate-x-full'
+            }`}
+          >
+            <Slide isActive={slide.id === currentSlide}>
+              {slide.content}
+            </Slide>
+          </div>
+        ))}
+      </div>
+
+      {/* Navigation Controls */}
+      <div className="p-6 flex justify-between items-center bg-white border-t border-slate-200 shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.05)]">
+        <button 
+          onClick={prevSlide}
+          disabled={currentSlide === 0}
+          className={`flex items-center px-6 py-3 rounded-lg font-bold transition ${
+            currentSlide === 0 
+              ? 'text-slate-300 cursor-not-allowed' 
+              : 'text-slate-700 hover:bg-slate-100 hover:text-blue-600'
+          }`}
+        >
+          <ChevronLeft className="mr-2" /> Anterior
+        </button>
+
+        <span className="text-slate-400 font-medium font-mono text-sm">
+          {currentSlide + 1} / {slides.length}
+        </span>
+
+        <button 
+          onClick={nextSlide}
+          disabled={currentSlide === slides.length - 1}
+          className={`flex items-center px-6 py-3 rounded-lg font-bold transition ${
+            currentSlide === slides.length - 1
+              ? 'text-slate-300 cursor-not-allowed' 
+              : 'bg-blue-600 text-white hover:bg-blue-700 shadow-md'
+          }`}
+        >
+          Siguiente <ChevronRight className="ml-2" />
+        </button>
+      </div>
+
+      {/* Tailwind Custom Styles for Animations */}
+      <style>{`
+        @keyframes fadeInUp {
+          from { opacity: 0; transform: translateY(20px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up {
+          animation: fadeInUp 0.6s ease-out forwards;
+        }
+      `}</style>
+    </div>
+  );
+}
